@@ -21,3 +21,10 @@ composer.lock
 ### Environment Credentials
 .env.*.php
 !.env.local.php
+.env.local.php
+
+.env.local.php
+
+config/environment.php
+
+config/shared.php

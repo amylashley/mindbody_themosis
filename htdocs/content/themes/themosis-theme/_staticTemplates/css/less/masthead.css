@@ -1,0 +1,44 @@
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.clear-float:before,
+.clear-float:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.clear-float:after {
+  clear: both;
+}
+.brand-font {
+  font-family: "europa", sans-serif;
+  font-style: normal;
+}
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+#masthead {
+  padding-top: 170px;
+}
+#masthead #masthead-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+#masthead #masthead-container h3 {
+  font-size: 1.125em;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+#masthead #masthead-container h1 {
+  font-size: 3.45em;
+  color: #fff;
+  font-weight: 300;
+}

@@ -1,0 +1,153 @@
+@import "../vars.less";
+@import "../mixins.less";
+//@import "../grid.less";
+
+//start here with mobile sizes
+.callouts {
+    
+    [class^=col-] {
+        padding: 0;  
+    }
+    
+    [class^=col-]:first-of-type {
+        padding-left: 15px;
+    }
+    
+    [class^=col-]:last-of-type {
+        padding-right: 15px;
+    }
+    
+    overflow: hidden;
+    
+    .callout-item {
+        background-size: cover;
+        background-position: 50% 50%;
+        text-align: center;
+        padding: 60px 15% 30px;
+        min-height: 270px;
+        position: relative;
+        
+        h3 {
+            color: #fff;
+            font-size: 1.875em;
+            margin: 0 0 20px 0;
+            padding: 0;
+        }
+        
+        .btn-row {
+            position: absolute;
+            bottom: 20px;
+            left: 0px;
+            right: 0px;
+            text-align: center;
+            
+            a.btn {
+                background: #fff;
+                color: @dark-grey;
+                display: inline-block;
+                padding: 5px 20px;
+                .rounded(0);
+                font-size: .75em;
+            }
+        }
+        
+        &.primary {
+            background-position: 50% 0%; 
+            text-align: left;
+            padding: 60px 40% 30px 30px;
+            
+            .btn-row {
+                left: 30px;
+                text-align: left;
+            }
+            
+            h3 {
+                font-size: 2.5em;
+                color: @primary-color;
+            }
+            
+            p {
+                font-size: .8125em;
+                color: @dark-grey;
+                line-height: 150%;
+            }
+        }
+    }
+
+    @media @medium {
+    //tablets and up
+
+    }
+
+    @media @large {
+    //desktop and up
+
+    }
+
+    @media @extralarge {
+    //large desktop
+
+    }
+
+}
+
+.app-callout {
+    background: @dark-grey;
+    padding: 30px 0 0;
+    
+    figure {
+        margin: 0;
+        padding: 0;
+        
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+    h4 {
+        color: @primary-color;
+        font-size: .8125em;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 20px 0 10px 0;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+        color: #fff;
+        padding: 0 0 20px;
+        margin: 0;
+        line-height: 125%;
+    }
+    
+    a.btn {
+        .rounded(0);
+        border: 1px solid @primary-color;
+        background: transparent;
+        padding: 5px 25px;
+    }
+    
+    
+    @media @medium {
+    //tablets and up
+        h4 {
+            padding: 100px 0 30px 0;
+        }
+        
+        h3 {
+            padding: 0 0 40px;
+            font-size: 2em;
+        }
+    }
+
+    @media @large {
+    //desktop and up
+
+    }
+
+    @media @extralarge {
+    //large desktop
+
+    }
+}

@@ -1,0 +1,42 @@
+@import "fonts.less";
+
+//colors
+@primary-color: #0193d7;
+@secondary-color: #72e652;
+@light-grey: #f3f3f3;
+@dark-grey: #493e3c;
+
+
+//helpers
+.hide-text {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.clear-float {
+    &:before, &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */ 
+    }
+    
+    &:after {
+        clear: both;
+    }
+}
+
+//typography
+.brand-font {
+    font-family: "europa",sans-serif;
+    font-style: normal;
+}
+
+.sans-serif-font {
+    
+}
+
+// Media Queries
+@small: ~"screen and (min-width: 0px)";
+@medium: ~"screen and (min-width: 750px)";
+@large: ~"screen and (min-width: 1110px)";
+@extralarge: ~"screen and (min-width: 1300px)";

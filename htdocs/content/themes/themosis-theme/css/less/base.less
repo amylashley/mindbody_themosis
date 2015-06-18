@@ -1,0 +1,39 @@
+@import "vars.less";
+@import "mixins.less";
+//@import "grid.less"; 
+
+//start here with mobile sizes
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.show-grid {
+    margin-bottom: 20px;   
+}
+
+.show-grid [class^=col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: fade(#000,20%);
+    border: 2px solid fade(#000,30%);
+    text-align: center;
+}
+
+@media @medium {
+//tablets and up
+    
+}
+
+@media @large {
+//desktop and up
+    
+}
+
+@media @extralarge {
+//large desktop
+    
+}

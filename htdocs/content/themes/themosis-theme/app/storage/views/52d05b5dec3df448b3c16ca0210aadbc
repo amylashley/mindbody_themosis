@@ -1,0 +1,6 @@
+<tr class="themosis-field-container">
+    <th class="themosis-label" scope="row">
+        <?php echo(Themosis\Facades\Form::label($field['id'], $field['title'])); ?>    </th>
+    <td>
+        <?php echo($field->metabox()); ?>    </td>
+</tr>

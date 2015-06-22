@@ -1,0 +1,191 @@
+@import "../vars.less";
+@import "../mixins.less";
+//@import "../grid.less";
+
+//start here with mobile sizes
+footer {
+    
+    padding: 60px 0 30px;
+    background: #fff;
+    
+    nav#footer-nav {
+        display: none;
+        
+        & > ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: percentage(2/8);
+            float: left;
+            padding: 0 15px;
+            
+            &:first-child {
+                padding-left: 0;    
+            }
+            
+            &.two-column {
+                width: percentage(4/8);
+                
+                ul {
+                    .columns(@colwidth: 120px, @colcount: 2, @colgap: 30px, @columnRuleColor: transparent, @columnRuleStyle: solid, @columnRuleWidth: 0px);
+                    /*li {
+                        float: left;
+                        width: 50%;
+                        padding: 0 15px;
+
+                        &:nth-child(odd) {
+                            padding-left: 0;     
+                        }
+
+                        &:nth-child(even) {
+                            padding-right: 0;     
+                        }
+                    }*/
+                }
+            }
+            
+            li {
+                margin: 0 0 5px;
+                padding: 0;
+                list-style: none;
+                display: block;
+                font-weight: 600;
+                
+                a {
+                    font-size: 1em;
+                    color: @dark-grey;
+                }
+                
+                & > ul {
+                    margin: 0 0 25px;
+                    padding: 0;
+                    list-style: none;
+
+                    & > li {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        font-weight: 300;
+
+                        & > a {
+                            font-size: .75em;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    
+    #social-links {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            
+             li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                text-align: center;
+                padding: 15px;
+                float: left;
+                width: percentage(1/3);
+                display: block;
+                 
+                &:first-child {
+                    padding-left: 0;
+                    padding-right: 30px;
+                }
+                 
+                &:last-child {
+                    padding-right: 0;
+                    padding-left: 30px;
+                }
+                
+                a {                    
+                    background: @primary-color;
+                    color: #fff;
+                    display: block;
+                    .rounded(50%);
+                    width: 100%;
+                    padding-top: 100%;
+                    position: relative;
+                    
+                    i {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        height: 40px;
+                        width: 40px;
+                        font-size: 2.5em;
+                        
+                        .transform(translate(-20px, -20px));
+                    }
+                }
+             }
+        }
+    }
+
+    @media @medium {
+    //tablets and up
+        nav#footer-nav {
+            display: block;
+        }
+        
+        #social-links {
+            ul {
+
+                 li {
+                    padding: 5px;
+
+                    &:first-child {
+                        padding-left: 0;
+                        padding-right: 10px;
+                    }
+
+                    &:last-child {
+                        padding-right: 0;
+                        padding-left: 10px;
+                    }
+                     
+                    a {                    
+                        i {
+                            height: 20px;
+                            width: 20px;
+                            font-size: 1.25em;
+
+                            .transform(translate(-10px, -10px));
+                        }
+                    }
+                 }
+            }
+        }
+    }
+
+    @media @large {
+    //desktop and up
+        #social-links {
+            ul {
+
+                 li {
+                    padding: 10px;
+
+                    &:first-child {
+                        padding-right: 20px;
+                    }
+
+                    &:last-child {
+                        padding-left: 20px;
+                    }
+                 }
+            }
+        }
+    }
+
+    @media @extralarge {
+    //large desktop
+
+    }
+    
+}

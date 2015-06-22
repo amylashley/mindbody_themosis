@@ -1,0 +1,116 @@
+@import "../vars.less";
+@import "../mixins.less";
+//@import "../grid.less";
+
+//start here with mobile sizes
+.product-grid {
+    
+    padding: 40px 0 0;
+    
+    .product-item {
+        
+        position: relative;
+        margin-bottom: 70px;
+        display: block;
+        text-decoration: none;
+        outline: none;
+        
+        &:focus {
+            .box-shadow(initial);
+            outline: none;
+        }
+        
+        &:hover {
+            text-decoration: none;
+        }
+        
+        &:after {
+            content: "";
+            width: 1px;
+            display: block;
+            top: 25%;
+            bottom: 25%;
+            right: -15px;
+            background: fade(@dark-grey, 20%);
+            position: absolute;
+        }
+        
+        .img-container {
+            width: 135px;
+            height: 135px;
+            padding: 20px;
+            background: @light-grey;
+            .rounded(50%);
+            margin: 0 auto;
+            
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        h3 {
+            color: @primary-color;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0;
+            padding: 20px 0;
+        }
+        
+        p {
+            &.price {
+                color: @dark-grey;
+                margin: 0 0 20px;
+            }
+        }
+        
+        .btn {
+            border: 1px solid @secondary-color;
+            color: @dark-grey;
+            font-size: .75em;
+            font-weight: 600;
+            padding: 5px 20px;
+            background: transparent;
+            .rounded(0);
+            .transition(200ms);
+            
+            &:hover {
+                background: @secondary-color;
+                color: #fff;
+            }
+        }
+    }
+    
+    [class ^= col-] {
+        &:nth-child(4n) {
+            .product-item {
+                &:after {
+                    display: none;    
+                }
+            }
+        } 
+        
+        &:last-child {
+            .product-item {
+                &:after {
+                    display: none;    
+                }
+            }
+        } 
+    }
+    
+    @media @medium {
+    //tablets and up
+
+    }
+
+    @media @large {
+    //desktop and up
+
+    }
+
+    @media @extralarge {
+    //large desktop
+
+    }
+}

@@ -1,0 +1,67 @@
+@import "../vars.less";
+@import "../mixins.less";
+//@import "../grid.less";
+
+//start here with mobile sizes
+.product-section-grid {
+    
+    background: @light-grey;
+    padding: 65px 0;
+    
+    .container-fluid {
+        overflow: scroll;
+        .row {
+            width: 280%;
+            .col-sm-3 {
+                width: 25%;
+                float: left;
+            }
+        }
+    }
+    
+    .product-section-item {
+        display: block;
+        text-decoration: none;
+        .rounded(100px);
+        padding: 70px 20px;
+        text-align: center;
+        background-size: cover;
+        background-position: 50% 50%;
+        
+        &:hover {
+            text-decoration: none;
+        }
+        
+        h3 {
+            font-size: 1.5em;
+            color: #fff;
+            font-weight: 600;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    @media @medium {
+    //tablets and up
+        .container-fluid {
+            overflow: auto;
+            .row {
+                width: auto;
+                .col-sm-3 {
+
+                }
+            }
+        }
+    }
+
+    @media @large {
+    //desktop and up
+
+    }
+
+    @media @extralarge {
+    //large desktop
+
+    }
+    
+}

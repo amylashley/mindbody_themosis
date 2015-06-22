@@ -13,7 +13,7 @@ composer.lock
 /htdocs/cms/*
 !/htdocs/cms/.gitkeep
 /htdocs/content/mu-plugins/themosis-framework/
-/htdocs/content/themes/themosis-theme/
+###/htdocs/content/themes/themosis-theme/
 /htdocs/content/uploads/
 /htdocs/content/upgrade/
 
@@ -21,3 +21,10 @@ composer.lock
 ### Environment Credentials
 .env.*.php
 !.env.local.php
+.env.local.php
+
+.env.local.php
+
+config/environment.php
+
+config/shared.php

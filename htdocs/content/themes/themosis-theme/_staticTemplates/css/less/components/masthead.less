@@ -1,0 +1,81 @@
+@import "../vars.less";
+@import "../mixins.less";
+//@import "../grid.less";
+
+//start here with mobile sizes
+
+.fixed-background {
+    background-position: 50% 50%;
+    background-size: cover;
+    
+    position: fixed!important;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+}
+
+#masthead {
+    
+    padding-top: 245px;
+    padding-bottom: 20px;
+    
+    position: relative;
+    
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: "";
+        background: rgba(0,0,0,.2);
+        z-index: 40;
+    }
+    
+    #masthead-container {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 50;
+        
+        h3 {
+            font-size: 1.125em;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 3.45em;
+            color: #fff;
+            font-weight: 300;
+            margin: 0;
+        }
+        
+        a.btn {
+            margin: 50px 0 65px;    
+        }
+    }
+    
+    @media @medium {
+    //tablets and up
+        #masthead-container {
+            width: 75%;
+        }
+    }
+
+    @media @large {
+    //desktop and up
+        #masthead-container {
+            width: 60%;
+        }
+    }
+
+    @media @extralarge {
+    //large desktop
+
+    }
+}

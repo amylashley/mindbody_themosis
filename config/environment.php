@@ -5,7 +5,10 @@
 /*----------------------------------------------------*/
 return array(
 
-    'local'         => 'Amys-MBP',
-    'production'    => 'your-production-hostname'
+    'local'         =>  'Amys-MacBook-Pro.local', 
+    //'Amys-MBP.attlocal.net'
+    //'Amys-MBP'
+    //'Amys-MacBook-Pro.local'
+    'production'    => 'box713.bluehost.com'
 
 );

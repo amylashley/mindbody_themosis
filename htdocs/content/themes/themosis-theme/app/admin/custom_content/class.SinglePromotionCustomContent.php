@@ -40,7 +40,7 @@ class SinglePromotionCustomContent extends CustomContent {
             $html .= '</div>'; //end row
             $html .= '</div>'; //end container-fluid
             //Does this block have a custom class assigned? 
-            if ($meta_data['custom_class'] && $meta_data['custom_class']!=''){
+            if (isset($meta_data['custom_class']) && $meta_data['custom_class']!=''){
                 $html .= '</div>'; //end custom div class
             }
             return $html;

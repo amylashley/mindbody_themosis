@@ -13,11 +13,13 @@ return array(
     'BaseController'        => themosis_path('app').'controllers'.DS.'BaseController.php',
     'MindBodyController'        => themosis_path('app').'controllers'.DS.'MindBodyController.php',
     'LayoutController'        => themosis_path('app').'controllers'.DS.'LayoutController.php',
+    'ProductsController'        => themosis_path('app').'controllers'.DS.'ProductsController.php',
 
     // Models
     'PostModel'             => themosis_path('app').'models'.DS.'PostModel.php',
     'MindBodyUserModel'     => themosis_path('app').'models'.DS.'MindBodyUserModel.php',
     'MindBodyProductModel'     => themosis_path('app').'models'.DS.'MindBodyProductModel.php',
+    'NavigationModel'     => themosis_path('app').'models'.DS.'NavigationModel.php',
     
     //Mindbody Classes
     'SourceCredentials'       => themosis_path('app').'admin/mindbody/includes/mbapi.php',
@@ -37,6 +39,7 @@ return array(
     'IconDefinitionsCustomContent' => themosis_path('app').'admin/custom_content/class.IconDefinitionsCustomContent.php',
     'SinglePromotionCustomContent' => themosis_path('app').'admin/custom_content/class.SinglePromotionCustomContent.php',
     'RecentPromotionsCustomContent' => themosis_path('app').'admin/custom_content/class.RecentPromotionsCustomContent.php',
+    'StaffBiosCustomContent' => themosis_path('app').'admin/custom_content/class.StaffBiosCustomContent.php',
 
     // Miscellaneous
 

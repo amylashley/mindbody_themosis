@@ -2,7 +2,7 @@
 /*This class controls the layout for the pages. Especially for those
  * using the layout editor in the admin
  */
-class LayoutController extends BaseController
+class ProductsController extends BaseController
 {
     /**
      * Does this page contain custom content?
@@ -36,11 +36,13 @@ class LayoutController extends BaseController
      * for getting anything setup on the page that we may need to
      */
     public function setupPage($post){
+        
        
         $this->checkForCustomContent($post);
        
+       $products = MindBodyProductModel::all();
         
-        return View::make('templates.page')->with(array(
+        return View::make('templates.products')->with(array(
             'custom_content'     => $this->custom_content,
             'sm_defaults'        => $this->navModel->get_sm_defaults(),
             'hm_defaults'        => $this->navModel->get_hm_defaults(),
@@ -48,8 +50,10 @@ class LayoutController extends BaseController
             'fm_left_defaults'        => $this->navModel->get_fm_left_defaults(),
             'fm_right_defaults'        => $this->navModel->get_fm_right_defaults(),
             'fm_center_defaults'        => $this->navModel->get_fm_center_defaults(),
+            'products'  => $products,
         ));
     }
+
    
      /*
      * This function checks for data entered via the layout editor
@@ -74,13 +78,6 @@ class LayoutController extends BaseController
             }
         }
         
-        
-    }
-    
-    
-    
-    
-    public function getCustomContent($meta_values) {
         
     }
 }

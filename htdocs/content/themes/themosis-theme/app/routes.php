@@ -23,7 +23,6 @@ Route::get('page', array('test', function(){
 
 // The view composer.
 // Use same syntax as for controllers.
-View::composer('templates.products', 'MindBodyController@updateProducts');
 
 
 /**************************************************************
@@ -38,14 +37,9 @@ View::composer('templates.products', 'MindBodyController@updateProducts');
  */
 //View::composer('templates.page', 'LayoutController@checkForCustomContent');
 //Route::get('page', array('help', 'uses' => 'PagesController@help'));
-Route::get('template', array('general-template','uses' => 'LayoutController@checkForCustomContent'));
+Route::get('template', array('general-template','uses' => 'LayoutController@setupPage'));
+Route::get('template', array('products-template','uses' => 'ProductsController@setupPage'));
 
-
-
-Route::get('template', array('products-template', function(){
-    return View::make('templates.products', array('name' => 'Amy'));
-
-}));
 Route::get('template', array('post-template', function(){
 
     return View::make('templates.post', array('name' => 'Amy'));

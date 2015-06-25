@@ -19,7 +19,14 @@ Asset::add('plugin-js', 'js/plugins.js', array('jquery'), '1.0', true);
 Asset::add('bootstrap-js', 'js/bootstrap.js', false, '1.0', true);
 Asset::add('tsiv-main', 'js/main-min.js', array('jquery'), '1.0', true);
 
-
+//Register Navigation
+register_nav_menus( array(
+	'footer_left_menu' => 'Footer Left Menu',
+        'footer_center_menu' => 'Footer Center Menu',
+        'footer_right_menu' => 'Footer Right Menu',
+        'footer_fullwidth_menu' => 'Footer Full Width Menu',
+        'social_media' => 'Social Media Links'
+) );
 
 /*
  * Create Custom Post Types here
@@ -53,7 +60,23 @@ PostType::make('icon', 'Icons', 'Icon')->set(array(
 
     'public'        => true,
     'menu_position' => 20,
+    'show_in_nav_menus' => false,
     'supports'      => array('title','editor','thumbnail'),
+    'rewrite'       => false,
+    'query_var'     => false
+
+    ));
+
+
+/********* END Icons ************/
+
+/*Staff Bios*/
+PostType::make('staff', 'Staff', 'Staff')->set(array(
+
+    'public'        => true,
+    'menu_position' => 20,
+    'show_in_nav_menus' => false,
+    'supports'      => array('title','editor','excerpt', 'thumbnail','page-attributes'),
     'rewrite'       => false,
     'query_var'     => false
 

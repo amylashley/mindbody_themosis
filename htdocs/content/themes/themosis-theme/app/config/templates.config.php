@@ -10,8 +10,8 @@ return array(
 	*/
         'general-template',
         'products-template',
-        'products-detail-template',
+        /*'products-detail-template',
         'post-template',
-        'post-detail-template',
+        'post-detail-template',*/
 
 );

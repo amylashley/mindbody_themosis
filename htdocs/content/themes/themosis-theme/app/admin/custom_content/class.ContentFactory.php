@@ -31,8 +31,8 @@ class ContentFactory {
                 return $this_content->createHtml($meta_values);             
               break;
             case 5:           
-              //$this_text = new ImplementationStep();
-              //return $this_text->get($plan, $step_name,$user);             
+              $this_content = new StaffBiosCustomContent();
+              return $this_content->createHtml($meta_values);              
               break;
             case 6:           
               $this_content = new PageLinksCustomContent();

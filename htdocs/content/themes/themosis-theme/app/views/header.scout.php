@@ -43,18 +43,7 @@
                     </nav>
                 </div>                    
             </header>
-            <div id="nav-wrapper">
-                <ul class="container-fluid">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Benefits</a></li>
-                    <li><a href="#">IV Therapies</a></li>
-                    <li><a href="#">Injections</a></li>
-                    <li><a href="#">Specialty Products</a></li>
-
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Mobile Services</a></li>
-                </ul>
-            </div>
+            <?php 
+            
+            wp_nav_menu($hm_defaults); ?>
            

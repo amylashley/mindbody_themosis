@@ -174,6 +174,13 @@ function my_admin_print_footer_scripts()
               }
            }else{
                switch (myValue) { 
+                case '5':
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Staff Bios' component.");
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');  
+                    $('[name="'+myName+'"]').closest('table').siblings('.testimonials-box').css('display','none');
+                    $('[name="'+myName+'"]').closest('table').siblings('.page-links-box').css('display','none');
+                    $('[name="'+myName+'"]').closest('table').siblings('.staff-bios-box').css('display','block');
+                break;
                 case '6':
                     $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Page Links' component.");
                     $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');  
@@ -238,7 +245,6 @@ function my_admin_print_footer_scripts()
                   $(this).siblings('#customEditor-3').css('display','none');
               break;
             case '2':
-            case '5':
                   $(this).siblings('#customEditor-0').css('display','block');
                   $(this).siblings('#customEditor-1').css('display','block');
                   $(this).siblings('#customEditor-2').css('display','none');
@@ -256,6 +262,14 @@ function my_admin_print_footer_scripts()
                   $(this).siblings('#customEditor-2').css('display','block');
                   $(this).siblings('#customEditor-3').css('display','block');
                break;
+            case '5':
+                  $(this).siblings('#customEditor-0').css('display','none');
+                  $(this).siblings('#customEditor-1').css('display','none');
+                  $(this).siblings('#customEditor-2').css('display','none');
+                  $(this).siblings('#customEditor-3').css('display','none');
+                  $(this).next().html("You have selected to show the 'Staff Bios' component.");
+                  $(this).siblings('.staff-bios-box').css('display','block');
+              break;
             case '6':
                   $(this).siblings('#customEditor-0').css('display','none');
                   $(this).siblings('#customEditor-1').css('display','none');

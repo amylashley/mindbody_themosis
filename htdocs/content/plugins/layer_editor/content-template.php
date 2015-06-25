@@ -106,6 +106,42 @@ global $wpalchemy_media_access; ?>
 				
 			</div> <!--end branding box-->
                         
+                        <div class="staff-bios-box" style="display:none;">
+                            <?php $mb->the_field('staff-bios-intro'); ?>
+				<span>Introduction Text</span>
+                                <textarea name="<?php $mb->the_name(); ?>"><?php $mb->the_value(); ?></textarea>
+				
+                                <p>Please select the staff members that you'd like to display:</p>
+                            <?php
+                            $the_query = new WP_Query( array( 'post_type' => 'staff', 'post_status' => 'publish', 'orderby' => 'menu_order', 'order' => 'asc') );  
+                            $pages = array();
+                            
+                            while ( $the_query->have_posts() ) : 
+                                $the_query->the_post();
+                                $pages[get_the_ID()]= get_the_title();      
+                            endwhile;
+                            wp_reset_postdata();
+                            ?>
+                            <?php 
+                                $mb->the_field('staff-bios'); 
+                                $selected_value = $mb->get_the_value();
+                            ?>
+                            <!--these form elements MUST stay in this order in the DOM! -->
+                            <input type="hidden" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" />
+                      
+                            <?php 
+                                foreach($pages as $key => $value){
+                                    echo '<input type="checkbox" ';
+                                    if (strpos($mb->get_the_value(), strval($key))){
+                                        echo ' checked ';
+                                    }
+                                    echo 'name="'.$value.'" value="'.$key.'"/>'.$value.'<br/>';
+                                }
+                                ?>
+                              </select>
+                           
+			</div> <!--end page-links box-->
+                        
                         <div class="testimonials-box" style="display:none;">
                             <p>Please select the testimonial that you'd like to display:</p>
                             <?php $the_query = new WP_Query( array( 'post_type' => 'testimonials') );  

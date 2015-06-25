@@ -8,4 +8,4 @@ and open the template in the editor.
     Author     : amylashley
 */
 
-.custom_class {width:250px !important;}
+.custom_class, .container_id {width:250px !important;}

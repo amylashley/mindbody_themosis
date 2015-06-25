@@ -111,6 +111,29 @@ function my_admin_print_footer_scripts()
 
         jQuery(function($)
         {
+          
+          
+          //Script to update text fields linked to selects
+          $('select').change(function(){
+              $(this).prev().val($(this).val());
+            });
+         
+          //Script to update text fields linked to selects
+          $('input:checkbox').change(function(){
+            //Get the hidden input json value
+            var pages_to_display = [];
+            if ($(this).siblings('input:hidden').val() != ''){
+                pages_to_display = $.parseJSON($(this).siblings('input:hidden').val());
+            }
+              if ($(this).is(':checked')) {
+                pages_to_display.push($(this).val());
+            }
+            else {
+                pages_to_display.splice($.inArray($(this).val(), pages_to_display),1);
+            }
+              $(this).siblings('input:hidden').val(JSON.stringify(pages_to_display));
+            });
+         
          
           /*some crazy js shiz because jquery wont work on our auto-created dom elements*/
          $(document).click(function(event) {
@@ -122,14 +145,14 @@ function my_admin_print_footer_scripts()
          if (className =='r-ex2'){
           $('[name="'+myName+'"]').closest('table').siblings('.no-cols').val(myValue);
           $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');
-           if (myValue<=6){ 
+           if (myValue<=4){ 
               $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').css('display','none');
               if (myValue == 1){
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-0').css('display','block');
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-1').css('display','none');
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-2').css('display','none');
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-3').css('display','none');
-              } else if (myValue == 2 || myValue == 5 || myValue == 6){
+              } else if (myValue == 2){
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-0').css('display','block');
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-1').css('display','block');
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-2').css('display','none');
@@ -146,27 +169,46 @@ function my_admin_print_footer_scripts()
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-2').css('display','block');
                 $('[name="'+myName+'"]').closest('table').siblings('#customEditor-3').css('display','block');
                 $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');
+                $('[name="'+myName+'"]').closest('table').siblings('.choose-slider-box').css('display','none');
+                $('[name="'+myName+'"]').closest('table').siblings('.testimonials-box').css('display','none');
               }
            }else{
                switch (myValue) { 
+                case '6':
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Page Links' component.");
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');  
+                    $('[name="'+myName+'"]').closest('table').siblings('.testimonials-box').css('display','none');
+                    $('[name="'+myName+'"]').closest('table').siblings('.page-links-box').css('display','block');
+                break;
                 case '7': 
-                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Related Content' carousel.");
-                    $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');                    
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Recent Promotions' component.");
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');  
+                    $('[name="'+myName+'"]').closest('table').siblings('.testimonials-box').css('display','none');
                     break;
-                case '8': 
-                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Child Pages' grid.");
+                case '8': //Layer Slider
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show a Layer Slider.");
                     $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');
+                    $('[name="'+myName+'"]').closest('table').siblings('.testimonials-box').css('display','none');
+                    $('[name="'+myName+'"]').closest('table').siblings('.choose-slider-box').css('display','block');
                     break;
                 case '9': 
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Icon Definitions' component.");
                     $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').css('display','none');
-                    $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','block');
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');
                     break;      
                 case '10': 
-                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Find Positions' component.");
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Testimonials' component.");
+                    $('[name="'+myName+'"]').closest('table').siblings('.choose-slider-box').css('display','none');
                     $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');
+                    $('[name="'+myName+'"]').closest('table').siblings('.testimonials-box').css('display','block');
                     break;
                 case '11': 
                     $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Become a Partner' component.");
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');
+                    break;
+                case '12': 
+                    $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').html("You have selected to show the 'Single Promotion' component.");
+                    $('[name="'+myName+'"]').closest('table').siblings('.single-promo-box').css('display','block');
                     $('[name="'+myName+'"]').closest('table').siblings('.npp-branding-box').css('display','none');
                     break;
                 default:
@@ -176,6 +218,7 @@ function my_admin_print_footer_scripts()
                   $('[name="'+myName+'"]').closest('table').siblings('#customEditor-1').css('display','none');
                   $('[name="'+myName+'"]').closest('table').siblings('#customEditor-2').css('display','none');
                   $('[name="'+myName+'"]').closest('table').siblings('#customEditor-3').css('display','none');
+                  $('[name="'+myName+'"]').closest('table').siblings('.testimonials-box').css('display','none');
                   $('[name="'+myName+'"]').closest('table').siblings('.npp-user-msg').css('display','block');
            }
          }else {
@@ -196,7 +239,6 @@ function my_admin_print_footer_scripts()
               break;
             case '2':
             case '5':
-            case '6':
                   $(this).siblings('#customEditor-0').css('display','block');
                   $(this).siblings('#customEditor-1').css('display','block');
                   $(this).siblings('#customEditor-2').css('display','none');
@@ -214,12 +256,20 @@ function my_admin_print_footer_scripts()
                   $(this).siblings('#customEditor-2').css('display','block');
                   $(this).siblings('#customEditor-3').css('display','block');
                break;
+            case '6':
+                  $(this).siblings('#customEditor-0').css('display','none');
+                  $(this).siblings('#customEditor-1').css('display','none');
+                  $(this).siblings('#customEditor-2').css('display','none');
+                  $(this).siblings('#customEditor-3').css('display','none');
+                  $(this).next().html("You have selected to show the 'Page Links' component.");
+                  $(this).siblings('.page-links-box').css('display','block');
+              break;
             case '7': 
                   $(this).siblings('#customEditor-0').css('display','none');
                   $(this).siblings('#customEditor-1').css('display','none');
                   $(this).siblings('#customEditor-2').css('display','none');
                   $(this).siblings('#customEditor-3').css('display','none');
-                  $(this).next().html("You have selected to show the 'Related Content' carousel.");
+                  $(this).next().html("You have selected to show the 'Recent Promotions' component.");
                   $(this).next().css('display','block');
                 break;
             case '8': 
@@ -227,25 +277,27 @@ function my_admin_print_footer_scripts()
                   $(this).siblings('#customEditor-1').css('display','none');
                   $(this).siblings('#customEditor-2').css('display','none');
                   $(this).siblings('#customEditor-3').css('display','none');
-                  $(this).next().html("You have selected to show the 'Child Pages' grid.");
-                  $(this).next().css('display','block');
+                  $(this).next().html("You have selected to show a Layer Slider.");
+                  $(this).siblings('.choose-slider-box').css('display','block');
                 break;
-            case '9':  //branding box
+            case '9':  //icon definition list
                   $(this).siblings('#customEditor-0').css('display','none');
                   $(this).siblings('#customEditor-1').css('display','none');
                   $(this).siblings('#customEditor-2').css('display','none');
                   $(this).siblings('#customEditor-3').css('display','none');
-                  $(this).next().html("You have selected to show the 'Marketing Message' component.");
-                  $(this).next().css('display','none');
-                  $(this).siblings('.npp-branding-box').css('display','block');
+                  $(this).next().html("You have selected to show the 'Icon Definitions' component.");
+                  $(this).next().css('display','block');
+                  $(this).siblings('.npp-branding-box').css('display','none');
                 break;      
             case '10': 
                   $(this).siblings('#customEditor-0').css('display','none');
                   $(this).siblings('#customEditor-1').css('display','none');
                   $(this).siblings('#customEditor-2').css('display','none');
                   $(this).siblings('#customEditor-3').css('display','none');
-                  $(this).next().html("You have selected to show the 'Find Positions' component.");
-                  $(this).next().css('display','block');
+                  $(this).next().html("You have selected to show the 'Testimonials' component.");
+                  //$(this).next().css('display','none');
+                  $(this).siblings('.testimonials-box').css('display','block');
+                  
                 break;
             case '11': 
                   $(this).siblings('#customEditor-0').css('display','none');
@@ -254,6 +306,16 @@ function my_admin_print_footer_scripts()
                   $(this).siblings('#customEditor-3').css('display','none');
                   $(this).next().html("You have selected to show the 'Become a Partner' component.");
                   $(this).next().css('display','block');
+                break;
+            case '12': 
+                  $(this).siblings('#customEditor-0').css('display','none');
+                  $(this).siblings('#customEditor-1').css('display','none');
+                  $(this).siblings('#customEditor-2').css('display','none');
+                  $(this).siblings('#customEditor-3').css('display','none');
+                  $(this).next().html("You have selected to show the 'Single Promotion' component.");
+                  //$(this).next().css('display','block');
+                  $(this).siblings('.testimonials-box').css('display','none');
+                  $(this).siblings('.single-promo-box').css('display','block');
                 break;
             default:              
                 $(this).siblings('#customEditor-0').css('display','block');

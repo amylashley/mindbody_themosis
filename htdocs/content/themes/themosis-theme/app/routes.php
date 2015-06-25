@@ -25,15 +25,6 @@ Route::get('page', array('test', function(){
 // Use same syntax as for controllers.
 View::composer('templates.products', 'MindBodyController@updateProducts');
 
-/*Load Assets*/
-// Load a CSS file stored in app/assets/css/screen.css
-Asset::add('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, '1.0', 'all');
-Asset::add('bootstrap', 'css/bootstrap.css', false, '1.0', 'all');
-Asset::add('bootstrap-theme', 'css/bootstrap-theme.css', false, '1.0', 'all');
-Asset::add('normalize-styles', 'css/normalize.css', false, '1.0', 'all');
-Asset::add('main-styles', 'css/main.css', false, '1.0', 'all');
-
-Asset::add('modernizr', 'js/vendor/modernizr-2.8.3.min.js');
 
 /**************************************************************
  * Routes to page templates
@@ -45,13 +36,13 @@ Asset::add('modernizr', 'js/vendor/modernizr-2.8.3.min.js');
         'post-template',
         'post-detail-template',
  */
-Route::get('template', array('general-template', function(){
+//View::composer('templates.page', 'LayoutController@checkForCustomContent');
+//Route::get('page', array('help', 'uses' => 'PagesController@help'));
+Route::get('template', array('general-template','uses' => 'LayoutController@checkForCustomContent'));
 
-    return View::make('templates.page', array('name' => 'Amy'));
 
-}));
+
 Route::get('template', array('products-template', function(){
-
     return View::make('templates.products', array('name' => 'Amy'));
 
 }));

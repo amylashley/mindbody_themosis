@@ -48,8 +48,13 @@ global $wpalchemy_media_access; ?>
 			<p>Custom class name for block wrapper</p>
 			<input type="text" class="custom_class" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/><BR>
                         
+                         <?php $mb->the_field('container_id'); ?>
+			<p>ID value for the container element inside the wrapper class (if applicable).</p>
+			<input type="text" class="container_id" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/><BR>
+                        
+                        
 			<p>Please select the display format you want in this block. Then enter content in the text areas below. Please note that for </p>
-			<?php $displays = array('1','2','3','4','5','6','7','8','9','10','11'); ?>
+			<?php $displays = array('1','2','3','4','5','6','7','8','9','10','11','12'); ?>
 			<table>
 			<?php foreach ($displays as $i => $display){
 				$mb->the_field('r_ex2'); 
@@ -100,6 +105,119 @@ global $wpalchemy_media_access; ?>
 				<input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/>
 				
 			</div> <!--end branding box-->
+                        
+                        <div class="testimonials-box" style="display:none;">
+                            <p>Please select the testimonial that you'd like to display:</p>
+                            <?php $the_query = new WP_Query( array( 'post_type' => 'testimonials') );  
+                            $testimonials = array();
+                            
+                            while ( $the_query->have_posts() ) : 
+                                $the_query->the_post();
+                                $testimonials[get_the_ID()]= get_the_title();      
+                            endwhile;
+                            wp_reset_postdata();
+                            ?>
+                            <span>Enter Testimonial Name</span>
+                            <?php 
+                                $mb->the_field('layer_testimonial'); 
+                                $selected_value = $mb->get_the_value();
+                            ?>
+                            <!--these form elements MUST stay in this order in the DOM! -->
+                            <input type="hidden" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" />
+                            
+			    <select id="<?php $mb->the_name(); ?>" name="layer_testimonial_select">
+                                <?php if ($mb->get_the_value() == ''){
+                                ?>
+                                <option value='-1'>Please select a testimonial</option>
+                                <?php
+                                }
+                                
+                                foreach($testimonials as $key => $value){
+                                    echo '<option value="'.$key.'" '.($selected_value == $key ? 'selected' : '').'>'.$value.'</option>';
+                                }
+                                ?>
+                              </select>
+                           
+			</div> <!--end testimonials box-->
+                        
+                        <div class="page-links-box" style="display:none;">
+                            <p>Please select the pages that you'd like to display:</p>
+                            <?php $the_query = new WP_Query( array( 'post_type' => 'page') );  
+                            $pages = array();
+                            
+                            while ( $the_query->have_posts() ) : 
+                                $the_query->the_post();
+                                $pages[get_the_ID()]= get_the_title();      
+                            endwhile;
+                            wp_reset_postdata();
+                            ?>
+                            <?php 
+                                $mb->the_field('layer_page_links'); 
+                                $selected_value = $mb->get_the_value();
+                            ?>
+                            <!--these form elements MUST stay in this order in the DOM! -->
+                            <input type="hidden" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" />
+                      
+                            <?php 
+                                foreach($pages as $key => $value){
+                                    echo '<input type="checkbox" ';
+                                    if (strpos($mb->get_the_value(), strval($key))){
+                                        echo ' checked ';
+                                    }
+                                    echo 'name="'.$value.'" value="'.$key.'"/>'.$value.'<br/>';
+                                }
+                                ?>
+                              </select>
+                           
+			</div> <!--end page-links box-->
+                        
+                        <div class="single-promo-box" style="display:none;">
+                            <p>Please select the Promotion that you'd like to display:</p>
+                            <?php 
+                            $args = array(
+                                    'category'         => 'promotions',
+                                    'orderby'          => 'date',
+                                    'order'            => 'DESC',
+                                    'post_type'        => 'post',
+                                    'post_status'      => 'publish',
+                            );
+                            $myposts = get_posts( $args ); 
+                            wp_reset_postdata();
+                            ?>
+                            <span>Select Promotion</span>
+                            <?php 
+                                $mb->the_field('layer_single_promo'); 
+                                $selected_value = $mb->get_the_value();
+                            ?>
+                            <!--these form elements MUST stay in this order in the DOM! -->
+                            <input type="hidden" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>" />
+                            
+			    <select id="<?php $mb->the_name(); ?>" name="layer_single_promo_select">
+                                <?php if (!$mb->get_the_value() || $mb->get_the_value() == ''){
+                                ?>
+                                <option value='-1' selected>Please select a promotion</option>
+                                <?php
+                                }
+                                
+                                foreach($myposts as $post){
+                                    setup_postdata( $post );
+                                    echo '<option value="'.get_the_ID().'" '.($selected_value == get_the_ID() ? 'selected' : '').'>'.get_the_title().'</option>';
+                                }
+                                ?>
+                              </select>
+                           
+			</div> <!--end single promotion box-->
+                        
+                        <div class="choose-slider-box" style="display:none;"><p>Please select the slider that you'd like to display:</p>				
+
+				
+				<?php $mb->the_field('layer_slider'); ?>
+				<span>Enter Slider Shortcode</span>
+				<input type="text" name="<?php $mb->the_name(); ?>" value="<?php $mb->the_value(); ?>"/>				
+				
+			</div> <!--end choose-slider box-->
+                        
+                        
 
 			<p class="warning update-warning"><?php _e( 'Sort order has been changed.  Remember to save the post to save these changes.' );?></p>
 	

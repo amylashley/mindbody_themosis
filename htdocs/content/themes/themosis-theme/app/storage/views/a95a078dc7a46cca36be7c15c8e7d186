@@ -57,13 +57,4 @@
                     <li><a href="#">Mobile Services</a></li>
                 </ul>
             </div>
-            
-            <div id="masthead" class="fixed-background" style="background-image:url(img/home-masthead.jpg)">
-                <div class="container-fluid">
-                    <div id="masthead-container">
-                        <h3>perform</h3>
-                        <h1>Be more prepared to crush the last mile</h1>
-                        <a href="#" class="btn btn-primary">View Services</a>
-                    </div>
-                </div>
-            </div>
+           

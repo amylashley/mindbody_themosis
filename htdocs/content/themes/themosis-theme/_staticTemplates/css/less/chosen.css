@@ -1,0 +1,47 @@
+.hide-text {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.clear-float:before,
+.clear-float:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.clear-float:after {
+  clear: both;
+}
+.brand-font {
+  font-family: "europa", sans-serif;
+  font-style: normal;
+}
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.chosen-container-single .chosen-drop {
+  background: #fff;
+  /* Old browsers */
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border: 2px solid #fff;
+}
+.chosen-container-single .chosen-single {
+  background: rgba(255, 255, 255, 0.2);
+  /* Old browsers */
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border: 2px solid #fff;
+}
+.chosen-container-active.chosen-with-drop .chosen-single {
+  background: #eaeaea;
+  border: 2px solid #e8e8e8;
+}

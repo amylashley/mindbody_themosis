@@ -17,6 +17,7 @@
         
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" href="css/chosen.min.css">
         
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -81,29 +82,115 @@
                 <div class="product-grid center-grid white-stripe">
                     
                     
-                    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
-                          </div>
-                          <div class="modal-body">
-                            <form>
-                              <div class="form-group">
-                                <label for="recipient-name" class="control-label">Recipient:</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                              </div>
-                              <div class="form-group">
-                                <label for="message-text" class="control-label">Message:</label>
-                                <textarea class="form-control" id="message-text"></textarea>
-                              </div>
-                            </form>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send message</button>
-                          </div>
+                          
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <div class="img-wrapper">
+                                            <div class="img-container"><img src="img/iv-therapy-athlete.png"></div>
+                                        </div>
+                                        <div class="product-detail-content">
+                                            <h3>Athlete Solution</h3>
+
+                                            <p>
+                                                Whether you’re a weekend warrior or an elite athlete, you’re 
+                                                looking for an edge. The Athlete Solution is balanced and measured 
+                                                blend of vitamins, minerals, and hydration – the very things your 
+                                                body needs to compete and win. Refill those competitive juices 
+                                                and get back in the game.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-5 form-box">
+                                        <div class="product-detail-form">
+                                            <h3>Book your appointment</h3>
+                                            <form class="label-placeholders">
+                                              
+                                              <fieldset>
+                                                <select data-placeholder="Location" id="input-location" name="input-location" class="chosen-select">
+                                                    <option></option>
+                                                    <option>Location One</option>
+                                                    <option>Location Two</option>
+                                                    <option>Location Three</option>
+                                                </select>
+                                              </fieldset>
+                                                
+                                              <fieldset>
+                                                <label for="input-name" class="control-label">Name</label>
+                                                <input type="text" class="form-control" id="input-name" name="input-name">
+                                              </fieldset>
+                                                
+                                              <fieldset>
+                                                <label for="input-email" class="control-label">Email</label>
+                                                <input type="email" class="form-control" id="input-email" name="input-email">
+                                              </fieldset>
+                                                
+                                              <fieldset>
+                                                  <div class="size-thirds">
+                                                    <label for="input-areaCode" class="control-label">Phone</label>
+                                                    <input type="text" class="form-control" id="input-areaCode" name="input-areaCode">
+                                                  </div>
+                                                  
+                                                  <div class="size-thirds">
+                                                    <input type="text" class="form-control" id="input-phone1" name="input-phone1">
+                                                  </div>
+                                                  
+                                                  <div class="size-thirds">
+                                                    <input type="text" class="form-control" id="input-phone2" name="input-phone2">
+                                                  </div>
+                                              </fieldset>    
+                                                
+                                              <fieldset>
+                                                <select data-placeholder="Service" id="input-service" name="input-service" class="chosen-select">
+                                                    <option></option>
+                                                    <option>Service One</option>
+                                                    <option>Service Two</option>
+                                                    <option>Service Three</option>
+                                                </select>
+                                              </fieldset>   
+                                                
+                                              <fieldset>
+                                                <div class="size-half">
+                                                    <label for="input-date" class="control-label">Date</label>
+                                                    <input type="text" class="form-control" id="input-date" name="input-date">
+                                                </div>
+                                                  
+                                                <div class="size-half">
+                                                    <select data-placeholder="Time" id="input-time" name="input-time" class="chosen-select">
+                                                        <option></option>
+                                                        <option>12:00 PM</option>
+                                                        <option>12:30 PM</option>
+                                                        <option>1:00 PM</option>
+                                                    </select>                                                  
+                                                </div>                                                
+                                              </fieldset> 
+                                              
+                                              <fieldset class="btn-row">
+                                                <button type="submit" class="btn btn-default">Submit</button>
+                                                <button type="submit" class="btn btn-link">Cancel</button>
+                                              </fieldset>    
+                                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <footer>
+                                    <ul>
+                                        <li><strong>$195</strong> (1 count)</li>
+                                        <li><strong>$780</strong> (5 count)</li>
+                                    </ul>    
+                                </footer>
+                            </div>
+                            
                         </div>
                       </div>
                     </div>
@@ -491,6 +578,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/bootstrap.js"></script>
+        <script src="js/chosen.jquery.js"></script>
         <script src="js/main-min.js"></script>
 
     </body>

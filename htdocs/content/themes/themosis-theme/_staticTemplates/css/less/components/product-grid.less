@@ -7,6 +7,216 @@
     
     padding: 40px 0 0;
     
+    .close {
+        color: @primary-color;    
+    }
+    
+    .modal {
+        text-align: left;
+        
+        .modal-content {
+            //background: url(../img/modal-bg-tile.gif) percentage(7/12) 0 repeat-y;    
+        }
+        
+        .form-box {
+            background: @primary-color;    
+        }
+        
+        [class ^= "col-"] {
+            overflow: hidden;
+        }
+        
+        .img-wrapper {
+            width: percentage(2/6);
+            float: left;
+            padding: 0 15px 0 15px;
+            
+            .img-container {
+                width: 100%;
+                padding-top: 100%;
+                position: relative;
+                padding: 10px;
+                .rounded(50%);
+                background: @light-grey;
+                
+                img {
+                    width: 100%;
+                    
+                }
+            }
+        }
+        
+        .product-detail-content {
+            float: left;
+            width: percentage(4/6);
+            padding: 0 15px 0 15px;
+            text-align: left;
+            
+            h3 {
+                color: @primary-color;
+                margin: 0;
+                padding: 20px 0 20px;
+                font-size: 1.25em;
+                font-weight: 600;
+            }
+            
+            p {
+                color: @dark-grey;
+                font-size: .8125em;
+                line-height: 125%;
+            }
+        }
+        
+        footer {
+            padding: 20px 0px;
+            text-align: center;
+            
+            ul {
+                margin: 0;
+                padding: 10px 0 0;
+                list-style: none;
+                border-top: 0px solid @light-grey;
+                
+                li {
+                    margin: 0;
+                    padding: 0 30px;
+                    list-style: none;  
+                    display: inline-block;
+                    color: fade(@dark-grey,65%);
+                    position: relative;
+                    
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        width: 1px;
+                        background: fade(@dark-grey,65%);
+                        top: 30%;
+                        bottom: 20%;
+                    }
+                    
+                    strong {
+                        font-size: 1.5em;    
+                    }
+                    
+                    &:last-of-type {
+                        &:after {
+                            display: none;
+                        }    
+                    }
+                }
+            }
+        }
+        
+        .product-detail-form {
+            padding: 0 15px 35px;
+            
+            h3 {
+                margin: 0;
+                padding: 20px 0 20px;
+                font-size: 1.25em;
+                font-weight: 600;
+                color: #fff;
+            }
+            
+            .size-half {
+                width: 50%;
+                padding-right: 10px;
+                float: left;
+                position: relative;
+                
+                &:nth-child(even) {
+                    padding-right: 0;    
+                }
+            }
+            
+            .size-thirds {
+                width: percentage(1/3);
+                float: left;
+                padding-right: 10px;
+                position: relative;
+                
+                &:last-of-type {
+                    padding-right: 0;    
+                }
+            }
+            
+            .btn-row {
+                clear: both;
+                margin-top: 30px;
+                margin-bottom: 20px;
+                
+                .btn-default {
+                    border: 1px solid #fff;
+                    background: fade(#fff,20%);
+                    padding: 5px 45px;
+                    color: #fff;
+                    .rounded(0);
+                    font-size: .85em;
+                    .text-shadow(none);
+                    font-weight: 600;
+                    .transition(200ms);
+                    
+                    &:hover {
+                        background: #fff;
+                        color: @primary-color;
+                    }
+                }
+                
+                .btn-link {
+                    color: fade(#fff,65%);
+                    font-size: .85em;
+                    padding: 5px 15px;
+                    .transition(200ms);
+                    
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+            
+            fieldset {
+                margin: 0 0 10px;
+                padding: 0;
+                position: relative;
+            }
+            
+            label {
+                color: #fff;
+                font-size: .85em;
+                position: absolute;
+                top: 12px;
+                left: 17px;
+                font-weight: 600;
+            }
+            
+            input, textarea, select {
+                background: rgba(255,255,255,0.2);
+                border: 2px solid #fff;
+                .rounded(0);
+                margin: 0;
+                padding: 10px 15px;
+                .box-shadow(none);
+                color: #fff;
+                font-size: .85em;
+                font-weight: 600;
+                width: 100%;
+            }
+            
+            input#input-areaCode {
+                text-align: center;
+            }
+            
+            input#input-phone1 {
+                text-align: center;
+            }
+            
+            input#input-phone2 {
+                text-align: center;
+            }
+        }
+    }
+    
     .product-item {
         
         position: relative;
@@ -101,7 +311,52 @@
     
     @media @medium {
     //tablets and up
+        .modal {
+            
+            .close {
+                color: #fff;    
+            }
+            
+            .modal-content {
+                background: url(../img/modal-bg-tile.gif) percentage(7/12) 0 repeat-y;    
+            }
+            
+            .form-box {
+                background: none;    
+            }
+        
+            footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: percentage(7/12);
+                padding: 20px 30px;
+                text-align: center;
 
+                ul {
+                    
+                    border-top: 1px solid @light-grey;
+                    
+                    li {
+                        padding: 0 20px;
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            right: 0;
+                            width: 1px;
+                            background: fade(@dark-grey,65%);
+                            top: 30%;
+                            bottom: 20%;
+                        }
+
+                        strong {
+                            font-size: 1.5em;    
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @media @large {

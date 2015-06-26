@@ -8,7 +8,10 @@ return array(
 	*
 	* Simply define a template slug.
 	*/
-
-	'custom-template'
+        'general-template',
+        'products-template',
+        /*'products-detail-template',
+        'post-template',
+        'post-detail-template',*/
 
 );

@@ -1,0 +1,10 @@
+<?php echo $__env->make('header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <!--include banner here-->
+    <?php if(have_posts()){ while(have_posts()){ the_post(); ?>
+
+    <?php echo(Loop::content()); ?>
+    <?php }} ?>
+    <main id="main-content">
+        <?php echo $custom_content; ?>
+    </main>
+<?php echo $__env->make('footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

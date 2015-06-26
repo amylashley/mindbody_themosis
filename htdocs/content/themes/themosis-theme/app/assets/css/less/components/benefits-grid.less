@@ -1,0 +1,72 @@
+@import "../vars.less";
+@import "../mixins.less";
+//@import "../grid.less";
+
+//start here with mobile sizes
+.benefits-grid {
+    
+    background: #fff;
+    padding: 60px 0;
+    
+    h2 {
+        text-align: center;
+        font-size: 2em;
+        color: @dark-grey;
+        margin: 0 0 60px;
+        padding: 0;
+        font-weight: 600;
+    }
+    
+    
+    .benefit-item {
+        
+        padding-bottom: 30px;
+        
+        .benefit-image {
+            background: @light-grey;
+            width: 75px;
+            height: 75px;
+            .rounded(50%);
+            padding: 15px;
+            float: left;
+            margin-right: 20px;
+            
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    
+        h3 {
+            color: @primary-color;
+            font-size: 1.25em;
+            font-weight: 600;
+            margin: 0 20px 15px 95px;
+            padding: 0;
+        }
+
+        p {
+            color: @dark-grey;
+            font-size: .8125em;
+            line-height: 150%;
+            margin: 0 20px 15px 95px;
+        }
+        
+    }
+
+    @media @medium {
+    //tablets and up
+
+    }
+
+    @media @large {
+    //desktop and up
+
+    }
+
+    @media @extralarge {
+    //large desktop
+
+    }
+    
+}

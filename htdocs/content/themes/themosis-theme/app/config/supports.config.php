@@ -11,7 +11,9 @@ return array(
 	/* --------------------------------------------------------------- */
 	// Enable post thumbnails
 	/* --------------------------------------------------------------- */
-	'post-thumbnails' => array('post'),
+	'post-thumbnails' => array('post', 'mb_product', 'mb_service', 'page', 'icon', 'staff'),
+    
+        //'page'
 
 	/* --------------------------------------------------------------- */
 	// Enable post formats (aside, gallery, link, image, ...)
